@@ -2,6 +2,7 @@
 <!-- Configuration of the Ant build system to generate a Jar file --> 
 <project name="CBHelper-Java" default="CreateJar">
   <target name="CreateJar" description="Create Jar file">
-        <jar jarfile="bin/CBHelper-Java.jar" basedir="." includes="*.class" />
+    <mkdir dir="bin/jar"/>
+    <jar jarfile="bin/jar/CBHelper-Java.jar" basedir="bin/classes/" />
   </target>
 </project>

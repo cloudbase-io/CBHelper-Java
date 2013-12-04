@@ -26,6 +26,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import com.google.gson.Gson;
@@ -75,7 +76,7 @@ public class CBHelperRequest implements Runnable {
 			while (params.hasMoreElements())
 			{
 				String curKey = params.nextElement();
-				entity.addPart(new CBStringPart(curKey, this.request.getParameters().get(curKey)));
+				entity.addPart(new CBStringPart(curKey, this.request.getParameters().get(curKey), HTTP.UTF_8));
 			}
 
 			// if we have file attachments then add each file to the multipart request
